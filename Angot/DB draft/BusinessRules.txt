@@ -1,0 +1,7 @@
+CLIENT can only have one CLIENT_LIBRARY, likewise, a CLIENT_LIBRARY can only be owned by one CLIENT.
+
+ADMIN can only have one ADMIN_LIBRARY, likewise, a ADMIN_LIBRARY can only be owned by one ADMIN.
+
+CLIENT can access APPLICATION, but APPLICATION must have data from CLIENT_LIBRARY
+
+ADMIN can access APPLICATION, but APPLICATION must have data from ADMIN_LIBRARY
