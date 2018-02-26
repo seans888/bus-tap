@@ -1,0 +1,173 @@
+body{
+	background-image:url('Search_map.png');
+	background:no-repeat;
+}
+
+#arrow{
+	width: 186px;
+	height: 28px;
+	top: 620px;
+	left: 100px;
+}
+
+#blue{
+	background-color: #0000ff;
+	position: absolute;
+	width: 351px;
+	height: 111px;
+	top: 3px;
+	left: 6px;
+}
+
+#white{
+	background-color: #ffffff;
+	position: absolute;
+	width: 265px;
+	height: 38px;
+	top: 67px;
+	left: 57px;
+}
+
+#white2{
+	background-color: #ffffff;
+	position: absolute;
+	width: 265px;
+	height: 38px;
+	top: 15px;
+	left: 56px;
+}
+
+
+
+
+
+#bustapword{
+	color: #808000;
+	font-size: 47px;
+	position:fixed;
+	top: 235px;
+	left: 111px;
+	width: 159px;
+	height: 37px;
+}
+
+#user{
+	color: #000000;
+	font-size: 15px;
+	position:fixed;
+	top: 318px;
+	left: 20px;
+	width: 69px;
+	height: 18px;
+}
+
+#pass{
+	color: #000000;
+	font-size: 15px;
+	position:fixed;
+	top: 345px;
+	left: 22px;
+	width: 63px;
+	height: 18px;
+}
+
+#userline{
+	color: #000000;
+	font-size: 15px;
+	position:fixed;
+	top: 321px;
+	left: 23px;
+	width: 63px;
+	height: 18px;
+}
+
+#passline{
+	color: #000000;
+	font-size: 15px;
+	position:fixed;
+	top: 352px;
+	left: 21px;
+	width: 63px;
+	height: 18px;
+}
+
+
+
+#signinword{
+	color: #ffffff;
+	font-size: 20px;
+	position:fixed;
+	top: 390px;
+	left: 143px;
+	width: 66px;
+	height: 31px;
+}
+#create{
+	background-color: #808000;
+	width: 186px;
+	height: 28px;
+	position:fixed;
+	top: 423px;
+	left: 78px;
+}
+
+#createword{
+	color: #ffffff;
+	position:fixed;
+	font-size: 20px;
+	top: 425px;
+	left: 114px;
+	width: 134px;
+	height: 31px;
+}
+
+#login{
+	font-style: italic;
+	color: #808000;
+	font-size: 20px;
+	position: absolute;
+	top: 462px;
+	left: 114px;
+	width: 114px;
+	height: 28px;
+}
+
+#fb{
+	width: 183px;
+	height: 100px;
+	
+	top: 23px;
+	left: 88px;
+}
+
+#tweet{
+	width: 183px;
+	height: 100px;
+	
+	top: 23px;
+	left: 88px;
+}
+
+#mail{
+	width: 183px;
+	height: 100px;
+	
+	top: 23px;
+	left: 88px;
+}
+
+#ig{
+	width: 183px;
+	height: 100px;
+
+	top: 23px;
+	left: 88px;
+}
+
+#in{
+	width: 183px;
+	height: 100px;
+
+	top: 12px;
+	left: 88px;
+}
