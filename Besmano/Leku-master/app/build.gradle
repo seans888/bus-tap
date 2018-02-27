@@ -1,0 +1,51 @@
+apply plugin: 'com.android.application'
+apply from: '../quality.gradle'
+
+android {
+    compileSdkVersion 27
+    buildToolsVersion '27.0.2'
+
+    defaultConfig {
+        applicationId "com.schibsted.mappicker"
+        minSdkVersion 15
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+        vectorDrawables.useSupportLibrary = true
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    dexOptions {
+        preDexLibraries !"true".equals(System.getenv("TRAVIS"))
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support:appcompat-v7:27.0.2'
+    implementation project(':leku')
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'com.android.support:appcompat-v7:27.0.2'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'com.google.firebase:firebase-auth:11.8.0'
+    compile 'com.google.firebase:firebase-storage:11.8.0'
+    compile 'com.google.firebase:firebase-database:11.8.0'
+    compile 'com.wang.avi:library:2.1.3'
+    compile 'com.android.support:design:27.0.2'
+    compile 'com.android.support:cardview-v7:27.0.2'
+    compile 'com.github.paolorotolo:appintro:4.1.0'
+    compile 'com.github.clans:fab:1.6.2'
+    compile 'com.github.dakatso:livebutton:1.0.0'
+    compile 'com.github.livesun:GradientTextView:v1.0'
+    compile 'com.github.ceryle:RadioRealButton:v2.0.4'
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    testCompile 'junit:junit:4.12'
+}
