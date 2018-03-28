@@ -77,6 +77,7 @@ class RoutesController extends Controller
     public function edit($id)
     {
         $route = Route::find($id);
+        
         return view('routes.edit')->with('route', $route);
     }
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Stop;
+use App\Route;
 
 class StopsController extends Controller
 {
@@ -14,7 +15,8 @@ class StopsController extends Controller
      */
     public function index()
     {
-
+        $stops = Stop::paginate(10);;
+        return view('stops.index')->with('stops', $stops);
     }
 
     /**
@@ -24,7 +26,8 @@ class StopsController extends Controller
      */
     public function create()
     {
-        //
+        $routes = Route::all();
+        return view('stops.create')->with('routes', $routes);;
     }
 
     /**
@@ -35,7 +38,28 @@ class StopsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'stop_code' => 'required',
+            'stop_name' => 'required',
+            'stop_location' => 'nullable',
+            'stop_loadbeep' => 'required',
+            'stop_sellticket' => 'required',
+
+            'stop_order' => 'required'
+        ]);
+
+        //Add Stop
+        $stop = new Stop;
+        $stop->stop_code = $request->input('stop_code');
+        $stop->stop_name = $request->input('stop_name');
+        $stop->stop_location = $request->input('stop_location');
+        $stop->stop_loadbeep = $request->input('stop_loadbeep');
+        $stop->stop_sellticket = $request->input('stop_sellticket');
+        $stop->route_code = $request->input('route_code');
+        $stop->stop_order = $request->input('stop_order');
+        $stop->save();
+
+        return redirect('/stops')->with('success', 'Stop Added');
     }
 
     /**
@@ -46,7 +70,8 @@ class StopsController extends Controller
      */
     public function show($id)
     {
-
+        $stop = Stop::find($id);
+        return view('stops.show')->with('stop', $stop);
     }
 
     /**
@@ -57,7 +82,8 @@ class StopsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $stop = Stop::find($id);
+        return view('stops.edit')->with('stop', $stop);
     }
 
     /**

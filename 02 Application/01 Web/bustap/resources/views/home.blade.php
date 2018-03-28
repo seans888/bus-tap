@@ -38,8 +38,8 @@
                         </div>
                         <div class="card-body">
                             <h1 class="card-title pricing-card-title"></h1>
-                            <a href="/stops" class="btn btn-lg btn-block btn-outline-primary">View Routes</a>
-                            <a href="/stops/create" class="btn btn-lg btn-block btn-primary">Add Routes</a>
+                            <a href="/stops" class="btn btn-lg btn-block btn-outline-primary">View Stops</a>
+                            <a href="/stops/create" class="btn btn-lg btn-block btn-primary">Add Stops</a>
                         </div>
                     </div>
 

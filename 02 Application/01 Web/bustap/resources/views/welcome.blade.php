@@ -11,10 +11,10 @@
         <!-- Styles -->
         <style>
             html, body {
-                background-color: #25AAE1;
+                background-color: #F4911C;
                 color: #fff;
                 font-family: 'Raleway', sans-serif;
-                font-weight: 100;
+                font-weight: 600;
                 height: 100vh;
                 margin: 0;
             }
@@ -78,7 +78,7 @@
             @endif
     
             <div class="content">
-                    <img src="/storage/images/logo.png" alt="Bus Tap" height="200" width="200">  
+                    <img src="/storage/images/logo-orange.png" alt="Bus Tap" height="200" width="200">  
                 <div class="title m-b-md">
                       
                     {{config('app.title', 'Bus Tap')}}
