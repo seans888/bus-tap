@@ -1,21 +1,73 @@
-@extends('layouts.app')
+@extends('layouts.template-pages')
+@section('title') - View Bus Stops @endsection
+@section('header')  @endsection
+@section('background') 
+    style="background-image: url('{{ asset('img/welcome_page_1600.jpg') }}'); 
+    background-repeat: round; 
+    background-attachment: fixed;"
+@endsection
 
 @section('content')
-    <h1>Stops</h1>
-    @if(count($stops) > 0)
-        @foreach($stops as $stop)
-            <div class="well">
-                <ul class="list-group">
-                    <li class="list-group-item">
-                        <h3><a href="/stops/{{$stop->id}}">{{$stop->stop_name}}</a></h3>
-                    </li>
-                </ul>
-            </div>     
-            <br />  
-        @endforeach
-        <br />
-        {{$stops->links()}}    
-    @else
-        <p>No stops found.</p>
-    @endif
+<div class="row">
+    <div class="col-lg-12 col-md-7">
+        <div class="card">
+            <div class="header">
+                <h4 class="title">View Bus Stops</h4>
+            </div>
+            <div class="content">
+                    @if(count($stops) > 0)
+                    <table class="table">
+                        <thead class="text-info">
+                            <th>Stop Code</th>
+                            <th>Name</th>
+                            <th>Bus Stop Location</th>
+                            <th>beep&trade;?</th>
+                            <th>Ticket?</th>
+                            <th>Route</th>
+                            <th>Stop Order</th>
+                            <th></th>
+                            <th></th>    
+                        </thead>
+                        <tbody>
+                            @foreach($stops as $stop)
+                                <tr>
+                                    <td>{{$stop->stop_code}}</td>
+                                    <td><a href="/bustap/public/stops/{{$stop->id}}">{{$stop->stop_name}}</a></td>
+                                    <td>{{$stop->stop_location}}</td>
+                                    <td>{{$stop->stop_loadbeep}}</td>
+                                    <td>{{$stop->stop_sellticket}}</td>
+                                    <td>
+                                        @if(count($routes) > 0)
+                                            @foreach($routes as $route)
+                                                @if ($route->id == $stop->route_code)
+                                                <a href="/bustap/public/routes/{{$stop->route_code}}">{{$route->route_name}}</a>
+                                                @endif
+                                            @endforeach
+                                        @endif
+                                    </td>
+                                    <td>{{$stop->stop_order}}</td>
+                                    <td>
+                                        <a href="/bustap/public/stops/{{$stop->id}}/edit" class="btn btn-success">
+                                            <i class="ti-pencil-alt2"></i>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        {!!Form::open(['action' => ['StopsController@destroy', $stop->id], 'method' => 'POST'])!!}
+                                            {{Form::hidden('_method', 'DELETE')}}
+                                            <button type="submit" class="btn btn-danger">
+                                                <i class="ti-eraser"></i>
+                                            </button>
+                                        {!!Form::close()!!} 
+                                    </td>
+                                </tr>
+                            @endforeach    
+                        </tbody>
+                    </table>
+                @else
+                    <p>No bus stops found.</p>
+                @endif
+            </div>
+        </div>
+    </div>
+</div>    
 @endsection

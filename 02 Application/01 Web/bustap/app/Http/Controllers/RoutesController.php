@@ -14,7 +14,7 @@ class RoutesController extends Controller
      */
     public function index()
     {
-        $routes = Route::paginate(10);
+        $routes = Route::orderBy('route_name', 'asc')->paginate(10);
         return view('routes.index')->with('routes', $routes);
     }
 
@@ -41,8 +41,28 @@ class RoutesController extends Controller
             'route_name' => 'required',
             'route_availability' => 'required',
             'route_opschedule' => 'required',
-            'route_fare' => 'required'
+            'route_fare' => 'required',
+            'route_map' => 'image|nullable|max:1999'
         ]);
+
+        //Handle File Upload
+        if($request->hasFile('route_map'))
+        {
+            //Get filename with extension
+            $filenameWithExt = $request->file('route_map')->getClientOriginalName();
+            //Get filename
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            //Get extension
+            $extension = $request->file('route_map')->getClientOriginalExtension();
+            //Filename to store
+            $fileNameToStore = $filename.'_'.time().'.'.$extension;
+            //Upload Image
+            $path = $request->file('route_map')->storeAs('public/route_maps', $fileNameToStore);
+        } 
+        else
+        {
+            $fileNameToStore = 'no_image.png';
+        }
 
         //Add Route
         $route = new Route;
@@ -51,6 +71,9 @@ class RoutesController extends Controller
         $route->route_availability = $request->input('route_availability');
         $route->route_opschedule = $request->input('route_opschedule');
         $route->route_fare = $request->input('route_fare');
+
+        $route->route_map = $fileNameToStore;
+
         $route->save();
 
         return redirect('/routes')->with('success', 'Route Added');
@@ -95,8 +118,28 @@ class RoutesController extends Controller
             'route_name' => 'required',
             'route_availability' => 'required',
             'route_opschedule' => 'required',
-            'route_fare' => 'required'
+            'route_fare' => 'required',
+            'route_map' => 'image|nullable|max:1999'
         ]);
+
+        //Handle File Upload
+        if($request->hasFile('route_map'))
+        {
+            //Get filename with extension
+            $filenameWithExt = $request->file('route_map')->getClientOriginalName();
+            //Get filename
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            //Get extension
+            $extension = $request->file('route_map')->getClientOriginalExtension();
+            //Filename to store
+            $fileNameToStore = $filename.'_'.time().'.'.$extension;
+            //Upload Image
+            $path = $request->file('route_map')->storeAs('public/route_maps', $fileNameToStore);
+        } 
+        else
+        {
+            $fileNameToStore = 'no_image.png';
+        }
 
         //Edit Route
         $route = Route::find($id);
@@ -105,6 +148,9 @@ class RoutesController extends Controller
         $route->route_availability = $request->input('route_availability');
         $route->route_opschedule = $request->input('route_opschedule');
         $route->route_fare = $request->input('route_fare');
+
+        $route->route_map = $fileNameToStore;
+
         $route->save();
 
         return redirect('/routes')->with('success', 'Route Updated');

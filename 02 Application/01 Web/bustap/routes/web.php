@@ -12,13 +12,18 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 Route::resource('routes', 'RoutesController');
-
 Route::resource('stops', 'StopsController');
-
+Route::resource('employees', 'EmployeesController');
+Route::resource('buses', 'BusesController');
+Route::resource('schedules', 'SchedulesController');
+Route::resource('news', 'NewsController');
+Route::resource('congestions', 'CongestionController');
+Route::resource('feedback', 'FeedbackController');
+Route::resource('reservations', 'ReservationController');
 
 Auth::routes();
 

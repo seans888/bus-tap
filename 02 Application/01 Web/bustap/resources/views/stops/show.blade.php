@@ -1,61 +1,92 @@
-@extends('layouts.app')
+@extends('layouts.template-pages')
+@section('title') - View Stop Information @endsection
+@section('header')  @endsection
+@section('background') 
+    style="background-image: url('{{ asset('img/welcome_page_1600.jpg') }}'); 
+    background-repeat: round; 
+    background-attachment: fixed;"
+@endsection
 
 @section('content')
-    <a href="/stops" class="btn btn-primary">Go Back</a>
-    <br /><br />
-    <h1>{{$stop->stop_name}}</h1>
-    <ul class="list-group">
-        <li class="list-group-item">
-            <dl class="dl-horizontal">
-                <dt>Stop code:</dt>
-                <dd>{!!$stop->stop_code!!}</dd>
-            </dl>
-        </li>
-        <li class="list-group-item">
-            <dl class="dl-horizontal">
-                <dt>Name:</dt>
-                <dd>{!!$stop->stop_name!!}</dd>
-            </dl>
-        </li>  
-        <li class="list-group-item">
-            <dl class="dl-horizontal">
-                <dt>Location:</dt>
-                <dd>{!!$stop->stop_location!!}</dd>
-            </dl>
-        </li>
-        <li class="list-group-item">
-            <dl class="dl-horizontal">
-                <dt>Loads beep&trade; card?</dt>
-                <dd>{!!$stop->stop_loadbeep!!}</dd>
-            </dl>
-        </li>
-        <li class="list-group-item">
-                <dl class="dl-horizontal">
-                    <dt>Sells ticket?</dt>
-                    <dd>{!!$stop->stop_sellticket!!}</dd>
-                </dl>
-            </li>
-        <li class="list-group-item">
-            <dl class="dl-horizontal">
-                <dt>Route:</dt>
-                <dd>{!!$stop->route_code!!}</dd>
-            </dl>
-        </li>
-        <li class="list-group-item">
-            <dl class="dl-horizontal">
-                <dt>Order of stop:</dt>
-                <dd>‎{!!$stop->stop_order!!}</dd>
-            </dl>
-        </li>                       
-    </ul>
-    <br/>
+<div class="row">
+    <div class="col-lg-8 col-md-7">
+        <div class="card">
+            <div class="header">
+                <h4 class="title">View Stop Information</h4>
+            </div>
+            <div class="content">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label>Code</label>
+                                <input type="text" class="form-control border-input" disabled value="{!!$stop->stop_code!!}">
+                            </div>
+                        </div>
+                        <div class="col-md-10">
+                            <div class="form-group">
+                                <label>Stop Name</label>
+                                <input type="text" class="form-control border-input" disabled value="{!!$stop->stop_name!!}">
+                            </div>
+                        </div>
+                    </div>
 
-    <a href="/stops/{{$stop->id}}/edit" class="btn btn-success">Edit</a>
-    <br /><br />
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Location</label>
+                                <input type="text" class="form-control border-input" disabled value="{!!$stop->stop_location!!}">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>Loads beep&trade; card?</label>
+                                <input type="text" class="form-control border-input" disabled value="{!!$stop->stop_loadbeep!!}">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>Sells ticket?</label>
+                                <input type="text" class="form-control border-input" disabled value="{!!$stop->stop_sellticket!!}">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-9">
+                            <div class="form-group">
+                                <label>Route</label>
+                                @if(count($routes) > 0)
+                                    @foreach($routes as $route)
+                                        @if ($route->id == $stop->route_code)
+                                            <input type="text" class="form-control border-input" disabled value="{!!$route->route_name!!}">
+                                        @endif
+                                    @endforeach
+                                @endif
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>Order of stop</label>
+                                <input type="text" class="form-control border-input" disabled value="{!!$stop->stop_order!!}">
+                            </div>
+                        </div>
+                    </div>
 
-    {!!Form::open(['action' => ['StopsController@destroy', $stop->id], 'method' => 'POST'])!!}
-        {{Form::hidden('_method', 'DELETE')}}
-        {{Form::submit('Delete', ['class' => 'btn btn-danger'])}}
-    {!!Form::close()!!}
+                    <table>
+                        <td width=100>
+                            <a href="/bustap/public/stops/{{$stop->id}}/edit" class="btn btn-info btn-block">Edit</a>
+                        </td>
+                        <td width=25>&nbsp;</td>    
+                        <td width=100>
+                            {!!Form::open(['action' => ['StopsController@destroy', $stop->id], 'method' => 'POST'])!!}
+                                {{Form::hidden('_method', 'DELETE')}}
+                                {{Form::submit('Delete', ['class' => 'btn btn-danger btn-block'])}}
+                            {!!Form::close()!!} 
+                        </td>            
+                    </table>
+
+            </div>
+        </div>
+    </div>      
+</div>
 @endsection
-   

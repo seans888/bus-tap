@@ -15,8 +15,9 @@ class StopsController extends Controller
      */
     public function index()
     {
-        $stops = Stop::paginate(10);;
-        return view('stops.index')->with('stops', $stops);
+        $routes = Route::all();
+        $stops = Stop::orderBy('stop_code', 'asc')->paginate(10);
+        return view('stops.index')->with('stops', $stops)->with('routes', $routes);
     }
 
     /**
@@ -27,7 +28,7 @@ class StopsController extends Controller
     public function create()
     {
         $routes = Route::all();
-        return view('stops.create')->with('routes', $routes);;
+        return view('stops.create')->with('routes', $routes);
     }
 
     /**
@@ -44,7 +45,7 @@ class StopsController extends Controller
             'stop_location' => 'nullable',
             'stop_loadbeep' => 'required',
             'stop_sellticket' => 'required',
-
+            'route_code' => 'required',
             'stop_order' => 'required'
         ]);
 
@@ -70,8 +71,9 @@ class StopsController extends Controller
      */
     public function show($id)
     {
+        $routes = Route::all();
         $stop = Stop::find($id);
-        return view('stops.show')->with('stop', $stop);
+        return view('stops.show')->with('stop', $stop)->with('routes', $routes);
     }
 
     /**
@@ -82,8 +84,9 @@ class StopsController extends Controller
      */
     public function edit($id)
     {
+        $routes = Route::all();
         $stop = Stop::find($id);
-        return view('stops.edit')->with('stop', $stop);
+        return view('stops.edit')->with('stop', $stop)->with('routes', $routes);
     }
 
     /**
@@ -95,7 +98,28 @@ class StopsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'stop_code' => 'required',
+            'stop_name' => 'required',
+            'stop_location' => 'nullable',
+            'stop_loadbeep' => 'required',
+            'stop_sellticket' => 'required',
+            'route_code' => 'required',
+            'stop_order' => 'required'
+        ]);
+
+        //Edit Stop
+        $stop = Stop::find($id);
+        $stop->stop_code = $request->input('stop_code');
+        $stop->stop_name = $request->input('stop_name');
+        $stop->stop_location = $request->input('stop_location');
+        $stop->stop_loadbeep = $request->input('stop_loadbeep');
+        $stop->stop_sellticket = $request->input('stop_sellticket');
+        $stop->route_code = $request->input('route_code');
+        $stop->stop_order = $request->input('stop_order');
+        $stop->save();
+
+        return redirect('/stops')->with('success', 'Stop Updated');
     }
 
     /**
@@ -106,6 +130,8 @@ class StopsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $stop = Stop::find($id);
+        $stop->delete();
+        return redirect('/stops')->with('success', 'Stop Removed');
     }
 }
