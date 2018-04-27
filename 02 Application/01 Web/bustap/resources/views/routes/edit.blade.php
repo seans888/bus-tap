@@ -67,7 +67,7 @@
                     <div class="text-center">
                         {{Form::hidden('_method', 'PUT')}}
                         {{Form::submit('Submit', ['class' => 'btn btn-success pull-left'])}}
-                        <a href="/bustap/public/routes" class="btn btn-info pull-right">Cancel</a>
+                        <a href="/routes" class="btn btn-info pull-right">Cancel</a>
                     </div>
                     <div class="clearfix"></div>
                 {!! Form::close() !!}

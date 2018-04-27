@@ -20,7 +20,7 @@
                     </div>
                     <div class="col-xs-7">
                         <div class="numbers">
-                            <a href='/bustap/public/news'>
+                            <a href='/news'>
                                 <p>View</p>    
                                 BGC Bus News
                             </a>
@@ -44,7 +44,7 @@
                     </div>
                     <div class="col-xs-7">
                         <div class="numbers">
-                            <a href='/bustap/public/routes'>
+                            <a href='/routes'>
                                 <p>View</p>    
                                 Bus Routes
                             </a>
@@ -66,7 +66,7 @@
                     </div>
                     <div class="col-xs-7">
                         <div class="numbers">
-                            <a href='/bustap/public/stops'>
+                            <a href='/stops'>
                                 <p>View</p>    
                                 Bus Stops
                             </a>
@@ -90,7 +90,7 @@
                     </div>
                     <div class="col-xs-7">
                         <div class="numbers">
-                            <a href='/bustap/public/buses'>
+                            <a href='/buses'>
                                 <p>View</p>    
                                 Buses
                             </a>
@@ -111,7 +111,7 @@
                     </div>
                     <div class="col-xs-7">
                         <div class="numbers">
-                            <a href='/bustap/public/schedules'>
+                            <a href='/schedules'>
                                 <p>View</p>    
                                 Schedules
                             </a>
@@ -135,7 +135,7 @@
                     </div>
                     <div class="col-xs-7">
                         <div class="numbers">
-                            <a href='/bustap/public/reservations'>
+                            <a href='/reservations'>
                                 <p>View</p>    
                                 Reservations
                             </a>
@@ -156,7 +156,7 @@
                     </div>
                     <div class="col-xs-7">
                         <div class="numbers">
-                            <a href='/bustap/public/feedback'>
+                            <a href='/feedback'>
                                 <p>View</p>    
                                 Feedbacks
                             </a>

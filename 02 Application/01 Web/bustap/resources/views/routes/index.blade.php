@@ -30,12 +30,12 @@
                             @foreach($routes as $route)
                                 <tr>
                                     <td>{{$route->route_code}}</td>
-                                    <td><a href="/bustap/public/routes/{{$route->id}}">{{$route->route_name}}</a></td>
+                                    <td><a href="/routes/{{$route->id}}">{{$route->route_name}}</a></td>
                                     <td>{{$route->route_availability}}</td>
                                     <td>{{$route->route_opschedule}}</td>
                                     <td>{{$route->route_fare}}</td>
                                     <td>
-                                        <a href="/bustap/public/routes/{{$route->id}}/edit" class="btn btn-success">
+                                        <a href="/routes/{{$route->id}}/edit" class="btn btn-success">
                                             <i class="ti-pencil-alt2"></i>
                                         </a>
                                     </td>

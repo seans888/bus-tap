@@ -28,20 +28,20 @@
                         <tbody>
                             @foreach($schedules as $schedule)
                                 <tr>
-                                    <td><a href="/bustap/public/schedules/{{$schedule->id}}">{{$schedule->sched_date1}}</a></td>
+                                    <td><a href="/schedules/{{$schedule->id}}">{{$schedule->sched_date1}}</a></td>
                                     <td>{{$schedule->sched_time1}}</td>
                                     <td>{{$schedule->sched_time2}}</td>
                                     <td>
                                         @if(count($routes) > 0)
                                             @foreach($routes as $route)
                                                 @if ($route->id == $schedule->route_code)
-                                                <a href="/bustap/public/routes/{{$schedule->route_code}}">{{$route->route_name}}</a>
+                                                <a href="/routes/{{$schedule->route_code}}">{{$route->route_name}}</a>
                                                 @endif
                                             @endforeach
                                         @endif
                                     </td>
                                     <td>
-                                        <a href="/bustap/public/schedules/{{$schedule->id}}/edit" class="btn btn-success">
+                                        <a href="/schedules/{{$schedule->id}}/edit" class="btn btn-success">
                                             <i class="ti-pencil-alt2"></i>
                                         </a>
                                     </td>

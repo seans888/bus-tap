@@ -26,7 +26,7 @@
                 </li>
                 @if ((Auth::user()->user_type == 'Employee') || (Auth::user()->user_type == 'Manager'))
                     <li>
-                        <a href="/bustap/public/home">
+                        <a href="/home">
                             <i class="ti-home"></i>
                             <p>Home</p>
                         </a>
@@ -39,10 +39,10 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a href="/bustap/public/news">View News</a>
+                                <a href="/news">View News</a>
                             </li>
                             <li>
-                                <a href="/bustap/public/news/create">Add News</a>
+                                <a href="/news/create">Add News</a>
                             </li>
                         </ul>
                     </li>
@@ -54,10 +54,10 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a href="/bustap/public/routes">View Routes</a>
+                                <a href="/routes">View Routes</a>
                             </li>
                             <li>
-                                <a href="/bustap/public/routes/create">Add Routes</a>
+                                <a href="/routes/create">Add Routes</a>
                             </li>
                         </ul>
                     </li>
@@ -69,10 +69,10 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a href="/bustap/public/stops">View Stops</a>
+                                <a href="/stops">View Stops</a>
                             </li>
                             <li>
-                                <a href="/bustap/public/stops/create">Add Stops</a>
+                                <a href="/stops/create">Add Stops</a>
                             </li>
                         </ul>
                     </li>
@@ -84,10 +84,10 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a href="/bustap/public/buses">View Buses</a>
+                                <a href="/buses">View Buses</a>
                             </li>
                             <li>
-                                <a href="/bustap/public/buses/create">Add Buses</a>
+                                <a href="/buses/create">Add Buses</a>
                             </li>
                         </ul>
                     </li>
@@ -99,23 +99,23 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a href="/bustap/public/schedules">View Schedules</a>
+                                <a href="/schedules">View Schedules</a>
                             </li>
                             <li>
-                                <a href="/bustap/public/schedules/create">Add Schedules</a>
+                                <a href="/schedules/create">Add Schedules</a>
                             </li>
                         </ul>
                     </li>
 
                     <li>
-                        <a href="/bustap/public/reservations">
+                        <a href="/reservations">
                             <i class="ti-ticket"></i>
                             <p>Reservations</p>
                         </a>
                     </li>
 
                     <li>
-                        <a href="/bustap/public/feedback">
+                        <a href="/feedback">
                             <i class="ti-comment"></i>
                             <p>Passenger Feedback</p>
                         </a>

@@ -56,7 +56,7 @@
 
                     <table>
                         <td width=100>
-                            <a href="/bustap/public/schedules/{{$schedule->id}}/edit" class="btn btn-info btn-block">Edit</a>
+                            <a href="/schedules/{{$schedule->id}}/edit" class="btn btn-info btn-block">Edit</a>
                         </td>
                         <td width=25>&nbsp;</td>    
                         <td width=100>

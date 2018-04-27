@@ -27,19 +27,19 @@
                         <tbody>
                             @foreach($buses as $bus)
                                 <tr>
-                                    <td><a href="/bustap/public/buses/{{$bus->id}}">{{$bus->bus_platenumber}}</td>
+                                    <td><a href="/buses/{{$bus->id}}">{{$bus->bus_platenumber}}</td>
                                     <td>{{$bus->bus_availability}}</td>
                                     <td>
                                         @if(count($routes) > 0)
                                             @foreach($routes as $route)
                                                 @if ($route->id == $bus->route_code)
-                                                <a href="/bustap/public/routes/{{$bus->route_code}}">{{$route->route_name}}</a>
+                                                <a href="/routes/{{$bus->route_code}}">{{$route->route_name}}</a>
                                                 @endif
                                             @endforeach
                                         @endif
                                     </td>
                                     <td>
-                                        <a href="/bustap/public/buses/{{$bus->id}}/edit" class="btn btn-success">
+                                        <a href="/buses/{{$bus->id}}/edit" class="btn btn-success">
                                             <i class="ti-pencil-alt2"></i>
                                         </a>
                                     </td>

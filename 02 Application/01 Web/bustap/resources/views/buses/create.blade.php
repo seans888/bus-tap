@@ -51,7 +51,7 @@
 
                     <div class="text-center">
                         {{Form::submit('Submit', ['class' => 'btn btn-success pull-left'])}}
-                        <a href="/bustap/public/buses" class="btn btn-info pull-right">Cancel</a>
+                        <a href="/buses" class="btn btn-info pull-right">Cancel</a>
                     </div>
                     <div class="clearfix"></div>
                 {!! Form::close() !!}

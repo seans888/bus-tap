@@ -32,7 +32,7 @@
                                         @if(count($routes) > 0)
                                             @foreach($routes as $route)
                                                 @if ($route->id == $reservation->route_code)
-                                                    <a href="/bustap/public/routes/{{$reservation->route_code}}">{{$route->route_name}}</a>
+                                                    <a href="/routes/{{$reservation->route_code}}">{{$route->route_name}}</a>
                                                 @endif
                                             @endforeach
                                         @endif

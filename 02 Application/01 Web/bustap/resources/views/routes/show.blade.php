@@ -12,7 +12,7 @@
         @if ($route->route_map != "no_image.png")
             <div class="col-lg-4 col-md-5">
                 <div class="card card-user">
-                    <img src='http://localhost/bustap/public/storage/route_maps/{!!$route->route_map!!}' alt="Route Map" width="325" class="img-rounded img-no-padding img-responsive">
+                    <img src='/storage/route_maps/{!!$route->route_map!!}' alt="Route Map" width="325" class="img-rounded img-no-padding img-responsive">
                 </div>
             </div>
         @endif
@@ -64,7 +64,7 @@
 
                     <table>
                         <td width=100>
-                            <a href="/bustap/public/routes/{{$route->id}}/edit" class="btn btn-info btn-block">Edit</a>
+                            <a href="/routes/{{$route->id}}/edit" class="btn btn-info btn-block">Edit</a>
                         </td>
                         <td width=25>&nbsp;</td>    
                         <td width=100>

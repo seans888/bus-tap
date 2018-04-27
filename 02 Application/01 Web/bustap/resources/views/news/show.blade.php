@@ -12,14 +12,13 @@
         <div class="col-lg-8 col-md-7">
             <div class="card">
                 <div class="header">
-                    <h4 class="title">View News Article</h4>
+                    <h3 class="title">{!!$announcement->news_title!!}</h3>
                 </div>
                 <div class="content">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label>Title</label>
-                                <input type="text" class="form-control border-input" disabled value="{!!$announcement->news_title!!}">
+                                <p>{!!$announcement->created_at!!}</p>
                             </div>
                         </div>
                     </div>
@@ -27,16 +26,6 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label>Date and Time Created</label>
-                                <input type="text" class="form-control border-input" disabled value="{!!$announcement->created_at!!}">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label>News Article</label>
                                 <p>{!!$announcement->news_article!!}</p>
                             </div>
                         </div>
@@ -44,7 +33,7 @@
 
                     <table>
                         <td width=100>
-                            <a href="/bustap/public/news/{{$announcement->id}}/edit" class="btn btn-info btn-block">Edit</a>
+                            <a href="/news/{{$announcement->id}}/edit" class="btn btn-info btn-block">Edit</a>
                         </td>
                         <td width=25>&nbsp;</td>    
                         <td width=100>

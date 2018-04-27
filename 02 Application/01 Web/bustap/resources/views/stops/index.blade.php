@@ -20,11 +20,9 @@
                         <thead class="text-info">
                             <th>Stop Code</th>
                             <th>Name</th>
-                            <th>Bus Stop Location</th>
                             <th>beep&trade;?</th>
                             <th>Ticket?</th>
                             <th>Route</th>
-                            <th>Stop Order</th>
                             <th></th>
                             <th></th>    
                         </thead>
@@ -32,22 +30,34 @@
                             @foreach($stops as $stop)
                                 <tr>
                                     <td>{{$stop->stop_code}}</td>
-                                    <td><a href="/bustap/public/stops/{{$stop->id}}">{{$stop->stop_name}}</a></td>
-                                    <td>{{$stop->stop_location}}</td>
-                                    <td>{{$stop->stop_loadbeep}}</td>
-                                    <td>{{$stop->stop_sellticket}}</td>
+                                    <td><a href="/stops/{{$stop->id}}">{{$stop->stop_name}}</a></td>
+                                    <td>
+                                        @if ($stop->stop_loadbeep == 'Y')
+                                            <i class="ti-check"></i>
+                                        @endif
+                                        @if ($stop->stop_loadbeep == 'N')
+                                            <i class="ti-close"></i>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if ($stop->stop_sellticket == 'Y')
+                                            <i class="ti-check"></i>
+                                        @endif
+                                        @if ($stop->stop_sellticket == 'N')
+                                            <i class="ti-close"></i>
+                                        @endif
+                                    </td>
                                     <td>
                                         @if(count($routes) > 0)
                                             @foreach($routes as $route)
                                                 @if ($route->id == $stop->route_code)
-                                                <a href="/bustap/public/routes/{{$stop->route_code}}">{{$route->route_name}}</a>
+                                                <a href="/routes/{{$stop->route_code}}">{{$route->route_name}}</a>
                                                 @endif
                                             @endforeach
                                         @endif
                                     </td>
-                                    <td>{{$stop->stop_order}}</td>
                                     <td>
-                                        <a href="/bustap/public/stops/{{$stop->id}}/edit" class="btn btn-success">
+                                        <a href="/stops/{{$stop->id}}/edit" class="btn btn-success">
                                             <i class="ti-pencil-alt2"></i>
                                         </a>
                                     </td>

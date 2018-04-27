@@ -27,9 +27,9 @@
                             @foreach($announcements as $announcement)
                                 <tr>
                                     <td>{{$announcement->created_at}}</td>
-                                    <td><a href="/bustap/public/news/{{$announcement->id}}">{{$announcement->news_title}}</a></td>
+                                    <td><a href="/news/{{$announcement->id}}">{{$announcement->news_title}}</a></td>
                                     <td>
-                                        <a href="/bustap/public/news/{{$announcement->id}}/edit" class="btn btn-success">
+                                        <a href="/news/{{$announcement->id}}/edit" class="btn btn-success">
                                             <i class="ti-pencil-alt2"></i>
                                         </a>
                                     </td>

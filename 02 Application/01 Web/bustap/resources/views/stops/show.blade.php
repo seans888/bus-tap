@@ -34,7 +34,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Location</label>
-                                <input type="text" class="form-control border-input" disabled value="{!!$stop->stop_location!!}">
+                                <p><a href="{!!$stop->stop_location!!}"> Redirect to google map </a></p>
                             </div>
                         </div>
                         <div class="col-md-3">
@@ -74,7 +74,7 @@
 
                     <table>
                         <td width=100>
-                            <a href="/bustap/public/stops/{{$stop->id}}/edit" class="btn btn-info btn-block">Edit</a>
+                            <a href="/stops/{{$stop->id}}/edit" class="btn btn-info btn-block">Edit</a>
                         </td>
                         <td width=25>&nbsp;</td>    
                         <td width=100>

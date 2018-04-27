@@ -1,8 +1,8 @@
 @extends('layouts.template-pages')
-@section('title') - Add Route @endsection
-@section('header')  @endsection
+@section('title') - Create Profile @endsection
+@section('header') Create Profile @endsection
 @section('background') 
-    style="background-image: url('{{ asset('img/welcome_page_1600.jpg') }}'); 
+    style="background-image: url('{{ asset('img/background.jpg') }}'); 
     background-repeat: round; 
     background-attachment: fixed;"
 @endsection
@@ -58,7 +58,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label>Route Map (max upload size: 2MB) </label> 
+                                <label> Route Map (max upload size: 2MB) </label> 
                                 {{Form::file('route_map')}}
                             </div>
                         </div>
@@ -66,7 +66,7 @@
 
                     <div class="text-center">
                         {{Form::submit('Submit', ['class' => 'btn btn-success pull-left'])}}
-                        <a href="/bustap/public/routes" class="btn btn-info pull-right">Cancel</a>
+                        <a href="/routes" class="btn btn-info pull-right">Cancel</a>
                     </div>
                     <div class="clearfix"></div>
                 {!! Form::close() !!}
